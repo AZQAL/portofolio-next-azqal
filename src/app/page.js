@@ -38,7 +38,7 @@ export default function Home () {
   return (
     <main className="mx-auto max-w-5xl px-4 py-10">
       <Hero
-      Nama="Azqal Andhika F"
+      nama="Azqal Andhika F"
       tagline="saya siswa SMKN1 PASURUAN jurusan REKAYASA PERANGKAT LUNAK"
       />
 
