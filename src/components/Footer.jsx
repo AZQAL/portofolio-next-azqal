@@ -1,10 +1,11 @@
-export default function () {
-
+export default function Footer() {
     const tahun = new Date().getFullYear();
 
     return (
-        <section className="w-full flex items-center justify-center border py-2">
-        <p className="flex items-center justify-center gap-4">&copy; {tahun} <span className="flex items-center justify-center font-semibold text-shadow-md text-shadow-blue-600 p-1 rounded-b-xl">M. Azqal Andhika F.</span></p>
-        </section>
-    )
+        <footer className="mt-auto bg-utama p-6 text-center text-latar">
+            <p className="text-sm text-gray-600">
+                &copy; {tahun} Azqal Andhika Fabiansyah. Dibuat Next.js di Kelas Industri UBIG
+            </p>
+        </footer>
+    );
 }
