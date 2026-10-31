@@ -15,15 +15,20 @@ export default function Navbar () {
     
     return (
         <header className="bg-utama text-white flex-row">
-            <nav className="mx-auto max-w-5xl grid grid-cols-2 gap-3 px-4 py-4 md:flex-row md:items-center md:justify-center">
-                <Link href="/" className="text-xl font-bold justify-self-start">Azqal Andhika</Link>
+            <nav className="mx-auto max-w-5xl flex flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:justify-between">
+                <Link href="/" className="text-xl font-bold">Azqal Andhika</Link>
 
-                <ul className="flex flex-wrap gap-x-5  gap-y-2 justify-end">
+                <ul className="flex flex-wrap gap-x-5  gap-y-2">
                 {menu.map((item) => {
-                        let kelas = "text-gray-200 hover:text-white";
-                        if (pathname === item.href) {
-                            kelas = "font-bold text-white underline underline-offset-8"
+                        let kelas = "text-gray-200 hover:text-white"
+                        let aktif = pathname.startsWith(item.href);
+                        if  (item.href === "/") {
+                            aktif = pathname === "/";
                         }
+                        if (aktif) {
+                            kelas = "font-bold text-white underline underline-offset-6"
+                        }
+                        
 
                         return (
                             <li key={item.href}>
