@@ -23,7 +23,13 @@ export default async function DetailProyek ({params}) {
 
     return (
         <main className="mx-auto max-w-3xl px-4 py-10">
-            <Link href="/proyek" className="text-sm font-semibold text-aksen hover:underline">&larr; kembali ke daftar proyek</Link>
+            <nav aria-label="Breadcrumb">
+                <Link href="/" className="text-utama hover:underline">Beranda</Link>
+                <span className="mx-2">/</span>
+                <Link href="/proyek" className="text-utama hover:underline">Proyek</Link>
+                <span className="mx-2">/</span>
+                <span className="text-utama font-bold">{item.judul}</span>
+            </nav>
             <h1 className="mt-4 text-3xl font-bold text-utama md:text-4xl">{item.judul}</h1>
             <p className="mt-2 text-gray-600">{item.kategori} &middot; dibuat di {item.minggu}</p>
             <Image
