@@ -51,7 +51,7 @@ export const proyek = [
     {
         slug:"web-manajemen-magang",
         judul:"Manajemen Magang",
-        kategori:"Web App / Dashboard",
+        kategori:"TypeScript",
         gambar:"/proyek/manajemen-magang.png",
         deskripsi:" Halaman ini menyajikan ringkasan data secara visual, memudahkan pengelolaan data siswa, guru, perusahaan mitra (DUDI), serta pemantauan aktivitas magang secara real-time.",
         fitur: [
@@ -63,7 +63,7 @@ export const proyek = [
     {
         slug:"portofolio-web-developer",
         judul:"Website Portofolio",
-        kategori:"Web desain",
+        kategori:"TypeScript",
         gambar:"/proyek/first-portofolio.png",
         deskripsi:"Halaman ini menggunakan tema gelap (dark mode) dengan aksen warna biru neon yang modern. Dirancang untuk menampilkan identitas profesional, menonjolkan foto profil, serta memudahkan pengunjung untuk melihat proyek dan menghubungi pemilik portofolio.",
         fitur: [

@@ -19,14 +19,14 @@ export default function Home () {
   const TahunLahir = 2009
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10">
+    <main className="mx-auto w-full max-w-5xl px-4 py-10">
       <Hero
       nama="Azqal Andhika F"
       tagline="saya siswa SMKN1 PASURUAN jurusan REKAYASA PERANGKAT LUNAK"
       />
 
       <section className="mt-10">
-        <h2 className="font-bold text-2xl text-utama mb-4">Keahlian</h2>
+        <h2 className="font-bold text-2xl text-utama dark:text-sky-200 dark:textsky-200 mb-4">Keahlian</h2>
         <div className="grid grid-cols-3 gap-4">
         {skills.map ((item) => (
           <SkillCard
@@ -39,7 +39,7 @@ export default function Home () {
       </section>
 
       <section className="mt-10">
-        <h2 className="font-bold text-2xl text-utama mb-4">Proyek Terbaru</h2>
+        <h2 className="font-bold text-2xl text-utama dark:text-sky-200 dark:textsky-200 mb-4">Proyek Terbaru</h2>
         <div className="grid grid-cols-3 gap-6 mb-8">
           {proyekTerbaru.map ((proyek) => (
             <ProyekCard
