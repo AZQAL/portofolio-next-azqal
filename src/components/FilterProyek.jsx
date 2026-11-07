@@ -15,7 +15,9 @@ export default function FilterProyek ({proyek}) {
     
     const hasil = proyek.filter ((p) => {
         const cocokKategori = kategori === "semua" || p.kategori === kategori;
-        const cocokKata = p.judul.toLowerCase().includes(kataKecil);
+        const cocokJudul = p.judul.toLowerCase().includes(kataKecil);
+        const cocokDeskripsi = p.deskripsi.toLowerCase().includes(kataKecil);
+        const cocokKata = cocokJudul || cocokDeskripsi;
         return cocokKategori && cocokKata;
     })
 
@@ -38,6 +40,14 @@ export default function FilterProyek ({proyek}) {
                         placeholder="Contoh: Portofolio"
                         className="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2 md:w-80"
                     />
+                    {kata !== "" && (
+                        <button
+                            type="button"
+                            onClick={() => setKata("")}
+                            className="mt-2 text-sm font-semibold text-aksen dark:text-red-200 hover:underline"
+                        >Hapus Pencarian</button>
+                    )}
+                    <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">menampilkan {hasil.length} dari {proyek.length}</p>
             </div>
             <p className="mt-4 text-gray-700 dark:textgray-300">kategori terpilih: {kategori}</p>
             <div className="mt-6 grid gap-6 md:grid-cols-3">

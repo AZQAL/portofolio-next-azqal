@@ -12,10 +12,12 @@ export default function FormKontak () {
     const [nomer, setNomer] = useState("");
     const [keperluan, setKeperluan] = useState("");
     const [pesan, setPesan] = useState("");
+    const [berhasil, setBerhasil] = useState(false);
 
     function kirim(e) {
         e.preventDefault();
         const errorBaru = {};
+        setBerhasil(false);
 
         if (nama.trim () === "") {
             errorBaru.nama = "Nama wajib di isi"
@@ -23,16 +25,17 @@ export default function FormKontak () {
         if (!email.includes("@")) {
             errorBaru.email = "email harus memuat tanda @, contoh: exampel@gmail.com";
         }
-        if (nomer.trim () === "") {
-            errorBaru.nomer = "nomer wajib di isi"
+        if (nomer.length < 10) {
+            errorBaru.nomer = "nomer minimal 10"
         }
         if (keperluan.trim () === "") {
             errorBaru.keperluan = "keperluan wajib di pilih"
         }
-        if (pesan.trim () === "") {
-            errorBaru.pesan = "pesan wajib di isi"
+        if (pesan.trim().length < 10) {
+            errorBaru.pesan = "pesan wajib di isi dan minimal 10"
         }
         setError(errorBaru);
+        setBerhasil(Object.keys(errorBaru).length === 0);
     }
 
     return (
@@ -107,6 +110,9 @@ export default function FormKontak () {
             <div className="mt-2">
                 <button type="submit" className="py-2 px-6 rounded-md bg-aksen text-white font-semibold">Kirim Pesan</button>
                 <p className="mt-2 text-sm text-gray-400">Form ini belum mengirim pesan. Pengiriman pesan di aktifkan di minggu 15.</p>
+                {berhasil && (
+                    <p className="rounded-lg bg-green-100 p-3 text-green-800 dark:bg-green-900 dark:text-green-100">Terima kasih {nama}, pesan mu lolos pemeriksaan</p>
+                )}
             </div>
         </form>
     )    
