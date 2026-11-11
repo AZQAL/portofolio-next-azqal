@@ -32,3 +32,16 @@ Pesan dari FormKontak.
 | `pesan` | `text` | Isi pesan |
 
 RLS aktif tanpa Policy, sehingga pengunjung tidak bisa membaca pesan. policy `insert` dibuat di minggu 15.
+
+## Tabel `skills`
+
+Daftar skill yang dipelajari.
+
+| Kolom | Tipe | Keterangan |
+| --- | --- | --- |
+| `id` | `int8` | Primary key, urut nomor otomatis 1, 2, 3, ... |
+| `created_at` | `timestamptz` | Waktu baris dibuat, terisi otomatis dengan `now()` |
+| `nama` | `text` | nama skill yang dipelajari |
+| `level` | `text` | tingkatan skill yang dipelajari dari dasar hingga mahir |
+
+RLS aktif. Policy `pengunjung boleh membaca skill` : peran `anon` boleh `select` semua baris.
