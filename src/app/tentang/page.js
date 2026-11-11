@@ -26,7 +26,7 @@ export const metadata = {
 
 export default function () {
     return (
-        <main className="mx-auto max-w-5xl px-5 py-10">
+        <main className="mx-auto max-w-5xl px-5 py-10 flex flex-col gap-6">
             <h1 className="text-3xl font-bold text-primary dark:textsky-200 md:text-4xl">Tentang Saya</h1>
 
             <Kartu judul="Perkenalan">Saya tinggal di Pasuruan Kota dan senang mencoba hal baru di dunia teknologi.saya ingin bisa membuat website yang bermanfaat untuk sekolah dan UMKM di sekitar rumah.</Kartu>
