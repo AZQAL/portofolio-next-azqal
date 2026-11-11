@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const classInput = "mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2"
+const classInput = "mt-1 w-full rounded-lg border border-input dark:border-gray-600 bg-card p-2"
 const classError = "mt-1 text-sm text-aksen dark:textred-300"
 
 export default function FormKontak () {

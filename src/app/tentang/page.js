@@ -27,7 +27,7 @@ export const metadata = {
 export default function () {
     return (
         <main className="mx-auto max-w-5xl px-5 py-10">
-            <h1 className="text-3xl font-bold text-utama dark:text-sky-200 dark:textsky-200 md:text-4xl">Tentang Saya</h1>
+            <h1 className="text-3xl font-bold text-primary dark:textsky-200 md:text-4xl">Tentang Saya</h1>
 
             <Kartu judul="Perkenalan">Saya tinggal di Pasuruan Kota dan senang mencoba hal baru di dunia teknologi.saya ingin bisa membuat website yang bermanfaat untuk sekolah dan UMKM di sekitar rumah.</Kartu>
 
@@ -61,10 +61,10 @@ export default function () {
 
                     <tbody className="max-w-full">
                         {jadwals.map ((item) => (
-                            <tr key={item.hari} className="border-b border-gray-300 dark:border-gray-600 max-w-full">
-                                <td className="p-2 text-sm font-semibold text-gray-600 dark:textgray-400">{item.hari}</td>
-                                <td className="p-2 text-sm font-semibold text-gray-600 dark:textgray-400">{item.waktu}</td>
-                                <td className="p-2 text-sm font-semibold text-gray-600 dark:textgray-400">{item.kegiatan}</td>
+                            <tr key={item.hari} className="border-b border-input dark:border-gray-600 max-w-full">
+                                <td className="p-2 text-sm font-semibold text-muted-foreground dark:textgray-400">{item.hari}</td>
+                                <td className="p-2 text-sm font-semibold text-muted-foreground dark:textgray-400">{item.waktu}</td>
+                                <td className="p-2 text-sm font-semibold text-muted-foreground dark:textgray-400">{item.kegiatan}</td>
                             </tr>
                         ))}
                     </tbody>
