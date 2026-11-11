@@ -5,20 +5,17 @@ import ProyekCard from "@/components/ProyekCard"
 import { buttonVariants } from "@/components/ui/button"
 import { supabase } from "@/lib/supabase"
 
-const skills = [
-  {nama: "HTML", level:"Menengah"},
-  {nama: "CSS", level:"Menengah"},
-  {nama: "Git dan GitHub", level:"Dasar"},
-  {nama: "Desain poster dengan canva", level:"Mahir"},
-  {nama: "JavaScript", level:"Dasar"},
-];
-
 export default async function Home () {
   const {data: proyekTerbaru} = await supabase
   .from("projects")
   .select("*")
   .order("created_at", {ascending: false})
   .limit(3);
+
+  const {data: skills} = await supabase
+  .from("skills")
+  .select("*")
+  .order("id");
 
   const Nama = "Azqal Andhika F"
   const TahunLahir = 2009
@@ -33,7 +30,7 @@ export default async function Home () {
       <section className="mt-10">
         <h2 className="font-bold text-2xl text-primary dark:textsky-200 mb-4">Keahlian</h2>
         <div className="grid grid-cols-3 gap-4">
-        {skills.map ((item) => (
+        {skills && skills.map ((item) => (
           <SkillCard
             key={item.nama}
             nama={item.nama}
