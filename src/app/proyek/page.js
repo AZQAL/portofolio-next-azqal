@@ -7,6 +7,8 @@ export const metadata = {
     description:"Hubungi Azqal Andhika melalui form kontak, email, atau GitHub"
 };
 
+export const revalidate = 60;
+
 export default async function DaftarProyek() {
     const {data: proyek, error} = await supabase
     .from("projects")
