@@ -6,17 +6,17 @@ export default function Hero({ nama, tagline }) {
     return (
         <section className="flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
             <div className="relative w-50 h-50 group">
-                <img
+                <Image
                     src="/foto-2.png"
                     alt="Foto 2"
                     className="absolute inset-0 w-full h-full object-cover rounded-full z-10 transition-transform duration-400 ease-out group-hover:shadow-lg shadow-blue-600 group-hover:rotate-180 group-hover:-translate-x-30"
                 />
-                <img
+                <Image
                     src="/foto-2.png"
                     alt="Foto 2"
                     className="absolute inset-0 w-full h-full object-cover rounded-full z-10 transition-transform duration-400 ease-out group-hover:shadow-lg shadow-blue-600 group-hover:rotate-180 group-hover:translate-x-30"
                 />
-                <img
+                <Image
                     src="/proofile.png"
                     alt="Foto 1"
                     className="absolute inset-0 w-full h-full object-cover rounded-full z-20 ease-out group-hover:shadow-lg shadow-cyan-600"

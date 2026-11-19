@@ -24,7 +24,7 @@ export const metadata = {
     description:"cerita,hobi,cita-cita dan jadwal belajar Azqal Andhika F"
 };
 
-export default function () {
+export default function Tentang () {
     return (
         <main className="mx-auto max-w-5xl px-5 py-10 flex flex-col gap-6">
             <h1 className="text-3xl font-bold text-primary dark:textsky-200 md:text-4xl">Tentang Saya</h1>

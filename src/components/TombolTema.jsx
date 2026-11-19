@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Button } from "./ui/button";
 
-export default function () {
+export default function TombolTema () {
     const [gelap, setGelap] = useState(false);
 
     function gantiTema () {
