@@ -1,13 +1,14 @@
 import FormPin from "@/components/FormPin";
+import KonfirmasiHapus from "@/components/KonfirmasiHapus";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { sudahMasuk } from "@/lib/pin";
 import { supabaseAdmin } from "@/lib/supabae-admin";
-import { hapusPesan, keluarKelola, sematkanPesan } from "./actions";
-import KonfirmasiHapus from "@/components/KonfirmasiHapus";
+import { hapusPesan, hapusProyek, keluarKelola, sematkanPesan } from "./actions";
+import Link from "next/link";
 
-export const metadata = { title: "Kelola Data", };
+export const metadata = { title: "Kelola Data" };
 
 export default async function Kelola() {
     if (!(await sudahMasuk())) {
@@ -29,8 +30,11 @@ export default async function Kelola() {
         .select("*")
         .order("disematkan", { ascending: false })
         .order("created_at", { ascending: false });
-    
-    
+
+    const { data: daftarProyek } = await supabaseAdmin
+        .from("projects")
+        .select("*")
+        .order("created_at", { ascending: false });
 
     return (
         <main className="mx-auto w-full max-w-3xl px-4 py-10">
@@ -40,6 +44,7 @@ export default async function Kelola() {
                     <Button type="submit" variant="outline">Keluar</Button>
                 </form>
             </div>
+
             <h2 className="mt-8 text-2xl font-bold text-primary">Pesan Buku Tamu</h2>
             <div className="mt-4 space-y-4">
                 {daftarPesan && daftarPesan.map((item) => (
@@ -50,23 +55,56 @@ export default async function Kelola() {
                             {item.disematkan && <Badge>Disematkan</Badge>}
                         </CardHeader>
 
+                        <CardContent className="flex gap-2">
                         <form action={sematkanPesan}>
                             <input type="hidden" name="id" value={item.id} />
                             <input type="hidden" name="sematkan" value={item.disematkan ? "tidak" : "ya"} />
-                            <Button type="submit" variant="outline" size="sm">{item.disematkan ? "Lepas Sematan" : "Sematkan"}</Button>
+                            <Button type="submit" variant="outline" size="sm">
+                                {item.disematkan ? "Lepas Sematan" : "Sematkan"}
+                            </Button>
                         </form>
 
                         <KonfirmasiHapus
-                        id={item.id}
-                        aksi={hapusPesan}
-                        judul="Hapus pesan ini?"
-                        keterangan={`Pesan dari ${item.nama} akan dihapus permanen dari buku tamu.`}
+                            id={item.id}
+                            aksi={hapusPesan}
+                            judul="Hapus pesan ini?"
+                            keterangan={`Pesan dari ${item.nama} akan dihapus permanen dari buku tamu.`}
                         />
-
-                        {item.disematkan && <Badge>Disematkan</Badge>}
+                        </CardContent>
                     </Card>
                 ))}
             </div>
+
+            <div className="mt-8 flex items-center justify-between">
+                <h2 className="text-2xl font-bold text-primary">Proyek</h2>
+                <Link href="/kelola/proyek/baru" className={buttonVariants()}>
+                    Tambah Proyek
+                </Link>
+            </div>
+            <div className="mt-4 space-y-3">
+                {daftarProyek && daftarProyek.map((item) => (
+                    <Card key={item.id} size="sm">
+                        <CardHeader>
+                            <CardTitle>{item.judul}</CardTitle>
+                            <CardDescription>
+                                {item.kategori} &middot; {item.minggu}
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent className="flex gap-2">
+                            <Link href={`/kelola/proyek/${item.id}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
+                                Ubah
+                            </Link>
+                            <KonfirmasiHapus
+                                id={item.id}
+                                aksi={hapusProyek}
+                                judul="Hapus proyek ini?"
+                                keterangan={`Proyek ${item.judul} akan hilang dari halaman Proyek dan Beranda.`}
+                            />
+                        </CardContent>
+                    </Card>
+                ))}
+            </div>
+
         </main>
     );
 }

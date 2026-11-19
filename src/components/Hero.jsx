@@ -9,28 +9,31 @@ export default function Hero({ nama, tagline }) {
                 <Image
                     src="/foto-2.png"
                     alt="Foto 2"
-                    className="absolute inset-0 w-full h-full object-cover rounded-full z-10 transition-transform duration-400 ease-out group-hover:shadow-lg shadow-blue-600 group-hover:rotate-180 group-hover:-translate-x-30"
+                    fill
+                    className="absolute inset-0 object-cover rounded-full z-10 transition-transform duration-400 ease-out group-hover:shadow-lg shadow-blue-600 group-hover:rotate-180 group-hover:-translate-x-30"
                 />
                 <Image
                     src="/foto-2.png"
                     alt="Foto 2"
-                    className="absolute inset-0 w-full h-full object-cover rounded-full z-10 transition-transform duration-400 ease-out group-hover:shadow-lg shadow-blue-600 group-hover:rotate-180 group-hover:translate-x-30"
+                    fill
+                    className="absolute inset-0 object-cover rounded-full z-10 transition-transform duration-400 ease-out group-hover:shadow-lg shadow-blue-600 group-hover:rotate-180 group-hover:translate-x-30"
                 />
                 <Image
                     src="/proofile.png"
                     alt="Foto 1"
-                    className="absolute inset-0 w-full h-full object-cover rounded-full z-20 ease-out group-hover:shadow-lg shadow-cyan-600"
+                    fill
+                    className="absolute inset-0 object-cover rounded-full z-20 ease-out group-hover:shadow-lg shadow-cyan-600"
                 />
             </div>
             <div>
-                <h1 className="text-3xl font-bold text-primary  md:text-5xl">Halo, saya {nama}</h1>
+                <h1 className="text-3xl font-bold text-primary md:text-5xl">Halo, saya {nama}</h1>
                 <p className="mt-3 text-lg text-muted-foreground dark:text-gray-300">{tagline}</p>
 
                 <div className="mt-5 flex justify-center gap-3 md:justify-start">
-                    <Link href="/proyek" className={buttonVariants ({size: "lg"})}>
+                    <Link href="/proyek" className={buttonVariants({ size: "lg" })}>
                         Lihat Proyek
                     </Link>
-                    <Link href="/kontak" className={buttonVariants({variant:"outline", size:"lg"})}>
+                    <Link href="/kontak" className={buttonVariants({ variant: "outline", size: "lg" })}>
                         Hubungi Saya
                     </Link>
                 </div>
